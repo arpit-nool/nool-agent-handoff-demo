@@ -1,4 +1,7 @@
+import { buildFilterSearch, parseFilterState } from "./filter-state.js";
+
 const searchInput = document.querySelector("#search");
+const priorityInput = document.querySelector("#priority");
 const list = document.querySelector("#ticket-list");
 const emptyState = document.querySelector("#empty-state");
 const totalCount = document.querySelector("#total-count");
@@ -40,10 +43,14 @@ function renderTickets(tickets) {
 }
 
 async function loadTickets() {
-  const params = new URLSearchParams();
-  if (searchInput.value.trim()) params.set("search", searchInput.value.trim());
+  const filters = {
+    search: searchInput.value,
+    priority: priorityInput.value
+  };
+  const query = buildFilterSearch(filters);
+  history.replaceState(null, "", `${location.pathname}${query}`);
 
-  const response = await fetch(`/api/tickets?${params}`);
+  const response = await fetch(`/api/tickets${query}`);
   const data = await response.json();
   renderTickets(data.tickets);
 }
@@ -54,4 +61,9 @@ searchInput.addEventListener("input", () => {
   timer = setTimeout(loadTickets, 120);
 });
 
+priorityInput.addEventListener("change", loadTickets);
+
+const initialFilters = parseFilterState(location.search);
+searchInput.value = initialFilters.search;
+priorityInput.value = initialFilters.priority;
 loadTickets();

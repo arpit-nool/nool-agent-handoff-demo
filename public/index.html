@@ -54,11 +54,22 @@
               <h2>All tickets</h2>
               <p>Search by ticket, subject, or owner.</p>
             </div>
-            <label class="search-control">
-              <span aria-hidden="true">⌕</span>
-              <span class="sr-only">Search tickets</span>
-              <input id="search" type="search" placeholder="Search tickets…" autocomplete="off" />
-            </label>
+            <div class="filter-controls">
+              <label class="search-control">
+                <span aria-hidden="true">⌕</span>
+                <span class="sr-only">Search tickets</span>
+                <input id="search" type="search" placeholder="Search tickets…" autocomplete="off" />
+              </label>
+              <label class="priority-control">
+                <span class="sr-only">Filter by priority</span>
+                <select id="priority">
+                  <option value="">All priorities</option>
+                  <option value="High">High priority</option>
+                  <option value="Medium">Medium priority</option>
+                  <option value="Low">Low priority</option>
+                </select>
+              </label>
+            </div>
           </div>
 
           <div id="ticket-list" class="ticket-list" aria-live="polite"></div>

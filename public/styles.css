@@ -38,9 +38,14 @@ h1 { margin: 0; font-size: clamp(28px, 4vw, 40px); letter-spacing: -.045em; }
 .panel-heading { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; padding: 23px 24px 20px; border-bottom: 1px solid #e7ebe7; }
 .panel-heading h2 { margin: 0 0 4px; font-size: 18px; letter-spacing: -.02em; }
 .panel-heading p { margin: 0; color: #778179; font-size: 13px; }
-.search-control { display: flex; align-items: center; gap: 9px; width: min(320px, 43vw); height: 42px; padding: 0 13px; color: #748079; background: #fafbfa; border: 1px solid #d7ded8; border-radius: 9px; }
+.filter-controls { display: flex; align-items: center; gap: 9px; }
+.search-control { display: flex; align-items: center; gap: 9px; width: min(270px, 31vw); height: 42px; padding: 0 13px; color: #748079; background: #fafbfa; border: 1px solid #d7ded8; border-radius: 9px; }
 .search-control:focus-within { border-color: #6d8a75; box-shadow: 0 0 0 3px rgb(97 133 107 / 12%); }
 .search-control input { width: 100%; color: #17211b; background: transparent; border: 0; outline: 0; }
+.priority-control { position: relative; }
+.priority-control::after { position: absolute; top: 50%; right: 12px; content: "⌄"; color: #637068; pointer-events: none; transform: translateY(-56%); }
+.priority-control select { height: 42px; min-width: 142px; padding: 0 34px 0 12px; color: #29382f; appearance: none; background: #fafbfa; border: 1px solid #d7ded8; border-radius: 9px; outline: 0; font-size: 12px; font-weight: 650; }
+.priority-control select:focus { border-color: #6d8a75; box-shadow: 0 0 0 3px rgb(97 133 107 / 12%); }
 .ticket-list { display: grid; }
 .ticket-card { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 15px; min-height: 86px; padding: 15px 24px; }
 .ticket-card + .ticket-card { border-top: 1px solid #edf0ed; }
@@ -69,7 +74,9 @@ h1 { margin: 0; font-size: clamp(28px, 4vw, 40px); letter-spacing: -.045em; }
   .summary { grid-template-columns: 1fr 1fr; }
   .summary div:last-child { display: none; }
   .panel-heading { align-items: stretch; flex-direction: column; }
+  .filter-controls { align-items: stretch; flex-direction: column; }
   .search-control { width: 100%; }
+  .priority-control select { width: 100%; }
   .ticket-card { padding-inline: 17px; }
   .ticket-arrow { display: none; }
 }

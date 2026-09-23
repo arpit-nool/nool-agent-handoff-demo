@@ -6,6 +6,7 @@
   "scripts": {
     "start": "node src/server.js",
     "test": "node --test",
-    "test:acceptance": "node --test test/*.test.js"
+    "test:acceptance": "node --test test/*.test.js",
+    "verify:handoff": "node demo/verify-handoff.js"
   }
 }
