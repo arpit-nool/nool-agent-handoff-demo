@@ -18,16 +18,14 @@ Open `http://127.0.0.1:4173`. Try a search, select a priority, refresh the page,
 - `demo-agent-a` — backend filtering and tests are complete; the dropdown and URL state are still missing. Nool contains the clarification and remaining work.
 - `demo-complete` — the finished feature and verified handoff.
 
-The checkpoints are tags inside this repository. The safest rehearsal setup is a separate worktree:
+The checkpoints are tags inside this repository. Nool also maintains local ledger state, so a Git worktree at a tag is insufficient for the live handoff. Create a fresh, self-contained agent-A workspace with the tested preparation command:
 
 ```sh
-git worktree add /tmp/nool-agent-a demo-agent-a
-cd /tmp/nool-agent-a
-nool context "continue ticket priority filter" --scope priority-filter --budget 1200 --compact
-nool task show --id 3169a2b2 --compact
+npm run demo:prepare -- /tmp/nool-agent-a
+npm run demo:verify-prepared -- /tmp/nool-agent-a
 ```
 
-Do not give the fresh agent the old conversation. Give it the prompt in `demo/agent-b-prompt.md` from the completed repository, replacing nothing: the task identifier is real and already recorded.
+The preparation command refuses to overwrite an existing destination. It exports the agent-A code, initializes a new Nool ledger, creates and starts the task, and records the client decisions. Do not give the fresh agent the old conversation. Give it the prompt in `demo/agent-b-prompt.md` from the completed repository.
 
 See [demo/runbook.md](demo/runbook.md) for the ten-minute presentation flow and reset instructions.
 
