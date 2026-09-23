@@ -5,6 +5,11 @@ const priorityInput = document.querySelector("#priority");
 const list = document.querySelector("#ticket-list");
 const emptyState = document.querySelector("#empty-state");
 const totalCount = document.querySelector("#total-count");
+const replayHandoff = document.querySelector("#replay-handoff");
+const handoffStatus = document.querySelector("#handoff-status");
+const handoffSteps = [...document.querySelectorAll(".handoff-step")];
+const agentBPrompt = document.querySelector("#agent-b-prompt");
+const continueAgentB = document.querySelector("#continue-agent-b");
 
 const priorityClass = {
   High: "priority-high",
@@ -41,6 +46,59 @@ function renderTickets(tickets) {
   emptyState.hidden = tickets.length > 0;
   list.hidden = tickets.length === 0;
 }
+
+const handoffMessages = [
+  "Agent A is building the first part: the priority filter.",
+  "Agent A has handed off the first part so Agent B can continue.",
+  "Nool remembered what changed and what is left to do.",
+  "Agent B is continuing with clear instructions.",
+  "Everything works: the feature is ready to release."
+];
+
+function setHandoffStep(current) {
+  handoffSteps.forEach((step, index) => {
+    step.classList.toggle("is-complete", index < current);
+    step.classList.toggle("is-active", index === current);
+  });
+  handoffStatus.textContent = handoffMessages[current];
+}
+
+function replayHandoffTimeline() {
+  replayHandoff.disabled = true;
+  continueAgentB.hidden = true;
+  agentBPrompt.hidden = true;
+  let current = 0;
+  const advance = () => {
+    setHandoffStep(current);
+    if (current === 1) {
+      agentBPrompt.hidden = false;
+      continueAgentB.hidden = false;
+      continueAgentB.focus();
+      return;
+    }
+    current += 1;
+    window.setTimeout(advance, 850);
+  };
+  advance();
+}
+
+replayHandoff.addEventListener("click", replayHandoffTimeline);
+continueAgentB.addEventListener("click", () => {
+  continueAgentB.hidden = true;
+  let current = 2;
+  const advance = () => {
+    setHandoffStep(current);
+    if (current === handoffSteps.length - 1) {
+      handoffSteps[current].classList.add("is-complete");
+      handoffSteps[current].classList.remove("is-active");
+      replayHandoff.disabled = false;
+      return;
+    }
+    current += 1;
+    window.setTimeout(advance, 850);
+  };
+  advance();
+});
 
 async function loadTickets() {
   const filters = {

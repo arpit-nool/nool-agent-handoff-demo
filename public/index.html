@@ -79,6 +79,68 @@
             <p>Try a different search.</p>
           </div>
         </section>
+
+        <section class="handoff-panel" aria-labelledby="handoff-title">
+          <div class="handoff-heading">
+            <div>
+              <p class="eyebrow">What Nool preserves</p>
+              <h2 id="handoff-title">Agent handoff timeline</h2>
+              <p>One agent makes progress. The next agent continues with the same context.</p>
+            </div>
+            <button id="replay-handoff" class="replay-button" type="button">▶ Run agent handoff</button>
+          </div>
+          <ol class="handoff-timeline" aria-label="Agent handoff progress">
+            <li class="handoff-step" data-step="1">
+              <span class="step-marker">1</span>
+              <div><strong>Agent A builds the first part</strong><span>Creates the priority filter</span></div>
+            </li>
+            <li class="handoff-step" data-step="2">
+              <span class="step-marker">2</span>
+              <div><strong>Agent A hands off</strong><span>The first part is ready for the next agent</span></div>
+            </li>
+            <li class="handoff-step" data-step="3">
+              <span class="step-marker">3</span>
+              <div><strong>Nool remembers the work</strong><span>What changed and what is left are saved</span></div>
+            </li>
+            <li class="handoff-step" data-step="4">
+              <span class="step-marker">4</span>
+              <div><strong>Agent B continues</strong><span>The next agent gets clear instructions</span></div>
+            </li>
+            <li class="handoff-step" data-step="5">
+              <span class="step-marker">5</span>
+              <div><strong>We check the result</strong><span>Everything works and is ready to release</span></div>
+            </li>
+          </ol>
+          <p id="handoff-status" class="handoff-status" aria-live="polite">Click “Run agent handoff” to see the work move between agents.</p>
+          <details class="scenario-details">
+            <summary>Real-world example: why did Agent A stop?</summary>
+            <div class="scenario-copy">
+              <p><strong>Agent A’s session ended after building the filter.</strong> This can happen because the session timed out, the engineer’s shift ended, or a second agent was assigned to finish the screen and tests.</p>
+              <div class="scenario-grid">
+                <div><strong>Git saves the code</strong><span>Agent A’s code is committed, so the files are not lost.</span></div>
+                <div><strong>Nool saves the understanding</strong><span>Nool records what changed, what is left, and how to check it.</span></div>
+                <div><strong>Agent B continues</strong><span>Agent B starts from the same code and the saved explanation.</span></div>
+              </div>
+              <div class="comparison-grid">
+                <div class="comparison-card without-nool"><strong>Without Nool</strong><span>Agent B sees the code, but has to guess what Agent A changed, what is still missing, and why decisions were made.</span></div>
+                <div class="comparison-card with-nool"><strong>With Nool</strong><span>Agent B sees the code plus the saved explanation, next steps, finish line, and proof that the work was checked.</span></div>
+              </div>
+            </div>
+          </details>
+          <div id="agent-b-prompt" class="agent-b-prompt" hidden>
+            <div class="prompt-label">Instructions for Agent B</div>
+            <p>Finish the priority filter. Check what Agent A already built, connect it to the screen, run the tests, and tell us if anything is still missing.</p>
+            <button id="continue-agent-b" class="continue-button" type="button">Let Agent B continue →</button>
+          </div>
+          <details class="nool-details">
+            <summary>What Nool contributes</summary>
+            <div class="details-grid">
+              <div><strong>Same memory</strong><span>The next agent sees what changed and why.</span></div>
+              <div><strong>Clear finish line</strong><span>Everyone knows what “done” means.</span></div>
+              <div><strong>Proof it works</strong><span>Tests and notes stay with the work.</span></div>
+            </div>
+          </details>
+        </section>
       </section>
     </main>
     <script type="module" src="/app.js"></script>
