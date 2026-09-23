@@ -7,14 +7,16 @@ export const tickets = Object.freeze([
   { id: "SUP-1019", title: "Welcome email has broken link", priority: "Low", owner: "Ishan" }
 ]);
 
-export function filterTickets({ search = "" } = {}) {
+export function filterTickets({ search = "", priority = "" } = {}) {
   const normalizedSearch = search.trim().toLowerCase();
+  const normalizedPriority = priority.trim().toLowerCase();
 
   return tickets.filter((ticket) => {
-    if (!normalizedSearch) return true;
-
-    return `${ticket.id} ${ticket.title} ${ticket.owner}`
+    const matchesSearch = !normalizedSearch || `${ticket.id} ${ticket.title} ${ticket.owner}`
       .toLowerCase()
       .includes(normalizedSearch);
+    const matchesPriority = !normalizedPriority || ticket.priority.toLowerCase() === normalizedPriority;
+
+    return matchesSearch && matchesPriority;
   });
 }

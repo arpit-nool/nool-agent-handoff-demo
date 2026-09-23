@@ -38,7 +38,10 @@ export function createAppServer() {
     const url = new URL(request.url ?? "/", "http://localhost");
 
     if (request.method === "GET" && url.pathname === "/api/tickets") {
-      const result = filterTickets({ search: url.searchParams.get("search") ?? "" });
+      const result = filterTickets({
+        search: url.searchParams.get("search") ?? "",
+        priority: url.searchParams.get("priority") ?? ""
+      });
       sendJson(response, 200, { tickets: result, count: result.length });
       return;
     }

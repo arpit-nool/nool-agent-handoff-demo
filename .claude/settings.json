@@ -1,0 +1,48 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "hooks": [
+          {
+            "command": "/Users/arpit.choudhary/Documents/personal/nool/ticket-handoff-demo/.nool/hooks/agent/claude_hook.sh",
+            "type": "command"
+          }
+        ],
+        "matcher": "*"
+      }
+    ],
+    "PreToolUse": [
+      {
+        "hooks": [
+          {
+            "command": "/Users/arpit.choudhary/Documents/personal/nool/ticket-handoff-demo/.nool/hooks/agent/claude_hook.sh",
+            "type": "command"
+          }
+        ],
+        "matcher": "*"
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "command": "/Users/arpit.choudhary/Documents/personal/nool/ticket-handoff-demo/.nool/hooks/agent/claude_hook.sh",
+            "type": "command"
+          }
+        ],
+        "matcher": "*"
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "command": "/Users/arpit.choudhary/Documents/personal/nool/ticket-handoff-demo/.nool/hooks/agent/claude_hook.sh",
+            "type": "command"
+          }
+        ],
+        "matcher": "*"
+      }
+    ]
+  }
+}
