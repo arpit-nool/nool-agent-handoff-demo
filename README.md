@@ -27,7 +27,7 @@ npm run demo:verify-prepared -- /tmp/nool-agent-a
 
 The preparation command refuses to overwrite an existing destination. It exports the agent-A code, initializes a new Nool ledger, creates and starts the task, and records the client decisions. Do not give the fresh agent the old conversation. Give it the prompt in `demo/agent-b-prompt.md` from the completed repository.
 
-See [demo/runbook.md](demo/runbook.md) for the ten-minute presentation flow and reset instructions.
+See [demo/DEMO.md](demo/DEMO.md) for the exact client presentation, and [demo/runbook.md](demo/runbook.md) for the longer presenter runbook and reset instructions.
 
 ## What the demo proves
 

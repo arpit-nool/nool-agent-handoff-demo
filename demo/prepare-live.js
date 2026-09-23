@@ -1,5 +1,5 @@
 import { execFileSync } from "node:child_process";
-import { appendFileSync, existsSync, mkdirSync, writeFileSync } from "node:fs";
+import { appendFileSync, existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -17,6 +17,7 @@ if (existsSync(destination)) {
 
 const agentAFiles = [
   ".gitignore",
+  "demo/agent-b-prompt.md",
   "package.json",
   "public/app.js",
   "public/index.html",
@@ -40,10 +41,12 @@ mkdirSync(destination, { recursive: false });
 for (const path of agentAFiles) {
   const target = resolve(destination, path);
   mkdirSync(dirname(target), { recursive: true });
-  const content = execFileSync("git", ["show", `demo-agent-a:${path}`], {
-    cwd: projectRoot,
-    encoding: null
-  });
+  const content = path === "demo/agent-b-prompt.md"
+    ? readFileSync(resolve(projectRoot, path))
+    : execFileSync("git", ["show", `demo-agent-a:${path}`], {
+        cwd: projectRoot,
+        encoding: null
+      });
   writeFileSync(target, content);
 }
 

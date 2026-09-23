@@ -1,7 +1,7 @@
 commit_policy_hash: 2e8b563ff1a0f6d478257fc6a82b13ac853a3787b40d0cc00df2893e7522a5c1
 commit_policy_version: 1
 commit_template_hash: 686bd6f6d3f60a9716f8ca85195b61c4852e2e6d8a91cf7a01fc867d6252a9af
-intent: Make the client demo portable and add repeatable preparation and end-to-end rehearsal checks
-knot_id: 94259521fcc8f70c6a30e4ab3404c425f9b7638473d8fe2999e7264d21ee3fe0
-solidified_at: 1790134633757
+intent: Fix demo documentation links and document the client presentation workflow
+knot_id: b08e53d5f7e2d54b0da4f6d802ce96dceb5a30f2d14582bdc201497cae6c6448
+solidified_at: 1790135285934
 thread: priority-filter

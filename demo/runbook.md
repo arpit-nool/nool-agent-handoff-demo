@@ -22,8 +22,8 @@ For the baseline screen, use the `demo-baseline` tag in a separate Git worktree 
 
 1. **Baseline (1 minute):** Show the app at `demo-baseline`. Search works; there is no priority selector.
 2. **Interruption point (2 minutes):** Open `/tmp/nool-demo-agent-a`. Show that six backend/search tests pass and the UI is unfinished.
-3. **Fresh retrieval (2 minutes):** Start a fresh coding-agent session in the agent-A worktree and paste only `demo/agent-b-prompt.md` from the completed repository.
-4. **Inspect the evidence (1 minute):** The new agent should retrieve task `3169a2b2`, the scoped finding, and the reasoning note. It should state that search and priority combine with AND, All is the default, URL state must persist, backend work is complete, and frontend work remains.
+3. **Fresh retrieval (2 minutes):** Start a fresh coding-agent session in that workspace and open `demo/agent-b-prompt.md`.
+4. **Inspect the evidence (1 minute):** The new agent should retrieve the task shown by `nool task list --tag handoff`, the scoped finding, and the reasoning note. It should state that search and priority combine with AND, All is the default, URL state must persist, backend work is complete, and frontend work remains.
 5. **Complete the feature (2 minutes):** Let the agent implement the selector and URL synchronization. Use the completed repository as the recovery checkpoint if generation runs long; say explicitly when you switch to it.
 6. **Acceptance (2 minutes):** Run the tests. Select High, combine it with a search, refresh, and open the copied URL in another tab.
 

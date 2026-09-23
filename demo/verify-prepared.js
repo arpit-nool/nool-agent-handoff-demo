@@ -16,6 +16,7 @@ const run = (command, args) => execFileSync(command, args, {
 });
 
 assert.ok(existsSync(resolve(destination, ".demo-task-id")), "prepared task ID is missing");
+assert.ok(existsSync(resolve(destination, "demo/agent-b-prompt.md")), "agent-B prompt is missing");
 assert.ok(!existsSync(resolve(destination, "public/filter-state.js")), "agent B URL-state module already exists");
 assert.doesNotMatch(readFileSync(resolve(destination, "public/index.html"), "utf8"), /id="priority"/);
 assert.match(readFileSync(resolve(destination, "src/tickets.js"), "utf8"), /matchesPriority/);
