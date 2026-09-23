@@ -6,6 +6,10 @@ A small, dependency-free client demo showing one task continued across two codin
 
 The screenshot shows the user-facing ticket board first, followed by the visual Nool handoff walkthrough.
 
+Paused handoff state, after Agent A hands off to Agent B:
+
+![Agent A handoff paused state](docs/assets/nool-agent-a-handoff-paused.png)
+
 ## Run the completed app
 
 ```sh
