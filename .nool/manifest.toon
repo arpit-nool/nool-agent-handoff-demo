@@ -1,7 +1,7 @@
 commit_policy_hash: 2e8b563ff1a0f6d478257fc6a82b13ac853a3787b40d0cc00df2893e7522a5c1
 commit_policy_version: 1
 commit_template_hash: 686bd6f6d3f60a9716f8ca85195b61c4852e2e6d8a91cf7a01fc867d6252a9af
-intent: Create task: Add priority filtering
-knot_id: 3169a2b22609611a59b11c9ec260971e1412265fef7523170cfebdeaf9cd817a
-solidified_at: 1790131600295
+intent: Claim task 3169a2b2
+knot_id: a51021174d1c44ed3f585b8780f75a031c8f812d99254cee1e7d280abc44748e
+solidified_at: 1790131626284
 thread: priority-filter
