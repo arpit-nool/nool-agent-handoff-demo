@@ -2,6 +2,10 @@
 
 A small, dependency-free client demo showing one task continued across two coding-agent sessions. Agent A implements backend priority filtering and records the client's decisions in Nool. Agent B starts fresh, retrieves that state, and completes the interface and URL behavior.
 
+![Ticket board and visual agent handoff](docs/assets/nool-ticket-handoff-demo.png)
+
+The screenshot shows the user-facing ticket board first, followed by the visual Nool handoff walkthrough.
+
 ## Run the completed app
 
 ```sh
