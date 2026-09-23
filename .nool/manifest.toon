@@ -1,7 +1,7 @@
 commit_policy_hash: 2e8b563ff1a0f6d478257fc6a82b13ac853a3787b40d0cc00df2893e7522a5c1
 commit_policy_version: 1
 commit_template_hash: 686bd6f6d3f60a9716f8ca85195b61c4852e2e6d8a91cf7a01fc867d6252a9af
-intent: Finish task 3169a2b2 (landed 56d7fcda)
-knot_id: 6220af991e6ab7c8619675294809c3bdfbf0e8820bfca78aa0055f73e1ceea42
-solidified_at: 1790131867259
+intent: Verify done task 3169a2b2 (receipt 12846bf3)
+knot_id: b5386575f28054f7af2d51017a71a254ddbee41d861791c24619e3b0619dbb2f
+solidified_at: 1790131867317
 thread: priority-filter
