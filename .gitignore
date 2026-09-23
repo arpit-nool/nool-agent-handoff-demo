@@ -1,0 +1,10 @@
+.DS_Store
+node_modules/
+nool.db
+knots.redb
+.nool/git_mirror/
+.nool/cache/
+.nool/tmp/
+.nool/daemon/
+.nool/*.lock
+demo/output/

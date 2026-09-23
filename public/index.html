@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="A tiny support ticket board for the Nool agent handoff demo." />
+    <title>Relaydesk · Ticket Board</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <aside class="sidebar" aria-label="Primary navigation">
+        <a class="brand" href="/" aria-label="Relaydesk home">
+          <span class="brand-mark">R</span>
+          <span>Relaydesk</span>
+        </a>
+
+        <nav>
+          <a class="nav-item active" href="/">
+            <span aria-hidden="true">◫</span>
+            Tickets
+          </a>
+          <span class="nav-item muted"><span aria-hidden="true">◎</span>Customers</span>
+          <span class="nav-item muted"><span aria-hidden="true">⌁</span>Reports</span>
+        </nav>
+
+        <div class="sidebar-note">
+          <span class="status-dot"></span>
+          <div>
+            <strong>Demo workspace</strong>
+            <small>6 synthetic tickets</small>
+          </div>
+        </div>
+      </aside>
+
+      <section class="workspace">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Support operations</p>
+            <h1>Ticket board</h1>
+          </div>
+          <div class="avatar" aria-label="Signed in as Arpit">AC</div>
+        </header>
+
+        <section class="summary" aria-label="Ticket summary">
+          <div><strong id="total-count">6</strong><span>Visible tickets</span></div>
+          <div><strong>2</strong><span>High priority</span></div>
+          <div><strong>3</strong><span>Owners online</span></div>
+        </section>
+
+        <section class="ticket-panel">
+          <div class="panel-heading">
+            <div>
+              <h2>All tickets</h2>
+              <p>Search by ticket, subject, or owner.</p>
+            </div>
+            <label class="search-control">
+              <span aria-hidden="true">⌕</span>
+              <span class="sr-only">Search tickets</span>
+              <input id="search" type="search" placeholder="Search tickets…" autocomplete="off" />
+            </label>
+          </div>
+
+          <div id="ticket-list" class="ticket-list" aria-live="polite"></div>
+          <div id="empty-state" class="empty-state" hidden>
+            <span>⌕</span>
+            <h3>No tickets found</h3>
+            <p>Try a different search.</p>
+          </div>
+        </section>
+      </section>
+    </main>
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>
